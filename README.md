@@ -1,5 +1,7 @@
 # Haunted Maze Mini-Jam
 
+![Game Preview](.docs/game_preview.png)
+
 In the most remote corners of the countryside, a farm sits unmaintained and abandoned. Legends say there's valuable treasure to be found between the vast fields of corn, but nobody has lived to tell the tale... Will you brave the night, or die trying?
 
 ## Introduction
