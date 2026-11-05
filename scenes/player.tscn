@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bas4hgv4soh64"]
+
+[ext_resource type="Texture2D" uid="uid://br1x7jwomv0h8" path="res://assets/icon.svg" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://kmk7iapnqhu2" path="res://scripts/player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://tp240oscdwgk" path="res://assets/neutral_point_light.webp" id="3_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://13cafbusysj2" path="res://assets/2d_cone_light_output.png" id="4_hqtel"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tlwt5"]
+radius = 28.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mt7qc"]
+size = Vector2(64, 64)
+
+[node name="Player" type="CharacterBody2D" unique_id=2057578005]
+y_sort_enabled = true
+collision_layer = 2
+script = ExtResource("1_onrkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1254161260]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_4flbx")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1218710045]
+shape = SubResource("CircleShape2D_tlwt5")
+
+[node name="AmbientLight" type="PointLight2D" parent="." unique_id=1656731082]
+color = Color(1, 0.7431667, 0.32999998, 1)
+texture = ExtResource("3_i3pqv")
+
+[node name="Flashlight" type="PointLight2D" parent="." unique_id=981367745]
+color = Color(1, 0.74509805, 0.32941177, 1)
+texture = ExtResource("4_hqtel")
+offset = Vector2(256, 0)
+texture_scale = 0.25
+
+[node name="ItemPickup" type="Area2D" parent="." unique_id=191867668]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemPickup" unique_id=1626024875]
+shape = SubResource("RectangleShape2D_mt7qc")

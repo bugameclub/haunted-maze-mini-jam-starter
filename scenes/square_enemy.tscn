@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cwweordir1lpo"]
+
+[ext_resource type="PackedScene" uid="uid://cxkxxnkkcfdeb" path="res://scenes/enemy.tscn" id="1_lv0qg"]
+[ext_resource type="Texture2D" uid="uid://br1x7jwomv0h8" path="res://assets/icon.svg" id="2_fho0w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fho0w"]
+radius = 28.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mt7qc"]
+size = Vector2(64, 64)
+
+[node name="SquareEnemy" unique_id=426954240 instance=ExtResource("1_lv0qg")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1" unique_id=1238883887]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_fho0w")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." index="2" unique_id=88390012]
+shape = SubResource("CircleShape2D_fho0w")
+
+[node name="PlayerDetectionArea" type="CollisionShape2D" parent="PlayerDetection" parent_id_path=PackedInt32Array(1188957592) index="0" unique_id=1372559038]
+visible = false
+shape = SubResource("RectangleShape2D_mt7qc")

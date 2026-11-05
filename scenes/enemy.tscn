@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cxkxxnkkcfdeb"]
+
+[ext_resource type="Script" uid="uid://cbkd04ulod1ce" path="res://scripts/base_enemy.gd" id="1_7k104"]
+
+[node name="Enemy" type="CharacterBody2D" unique_id=426954240]
+collision_layer = 2
+script = ExtResource("1_7k104")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1202498632]
+path_desired_distance = 4.0
+path_postprocessing = 1
+
+[node name="ResetTimer" type="Timer" parent="NavigationAgent2D" unique_id=512185370]
+wait_time = 2.0
+autostart = true
+
+[node name="PlayerDetection" type="Area2D" parent="." unique_id=1188957592]
+collision_mask = 2
+
+[connection signal="timeout" from="NavigationAgent2D/ResetTimer" to="." method="_on_reset_timer_timeout"]

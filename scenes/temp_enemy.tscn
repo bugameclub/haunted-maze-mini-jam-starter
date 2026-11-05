@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bmy7ntaxdic4o"]
+
+[ext_resource type="Texture2D" uid="uid://br1x7jwomv0h8" path="res://assets/icon.svg" id="1_fjbtb"]
+[ext_resource type="Script" uid="uid://cbkd04ulod1ce" path="res://scripts/base_enemy.gd" id="1_pl5io"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mt7qc"]
+size = Vector2(64, 64)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=426954240]
+collision_layer = 2
+script = ExtResource("1_pl5io")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=608235770]
+shape = SubResource("RectangleShape2D_mt7qc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=37970710]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_fjbtb")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1202498632]
+path_desired_distance = 4.0
+path_postprocessing = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=512185370]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
